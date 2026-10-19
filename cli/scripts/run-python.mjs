@@ -4,7 +4,12 @@ import { spawnSync } from 'node:child_process';
 import { platform } from 'node:os';
 
 const cmd = platform() === 'win32' ? 'python' : 'python3';
-const args = process.argv.slice(2);
+const args = process.argv.slice(2).map(arg => {
+  if (platform() === 'win32' && arg.startsWith("'") && arg.endsWith("'")) {
+    return arg.slice(1, -1);
+  }
+  return arg;
+});
 
 const result = spawnSync(cmd, args, {
   stdio: 'inherit',

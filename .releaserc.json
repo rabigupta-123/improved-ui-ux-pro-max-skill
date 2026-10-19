@@ -24,14 +24,16 @@
     [
       "@semantic-release/npm",
       {
-        "pkgRoot": "cli"
+        "pkgRoot": "cli",
+        "npmPublish": false
       }
     ],
     [
       "@semantic-release/github",
       {
         "successComment": false,
-        "failTitle": "Release failed for ${branch.name}"
+        "failTitle": "Release failed for ${branch.name}",
+        "labels": false
       }
     ]
   ]

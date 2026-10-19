@@ -1,6 +1,6 @@
 # Logo Design Reference
 
-AI-powered logo design with 55+ styles, 30 color palettes, 25 industry guides. Gemini Nano Banana is the default provider; Atlas Cloud and MuAPI are also available as explicit opt-in providers.
+AI-powered logo design with 55+ styles, 75 color palettes, 25 industry guides. Gemini Nano Banana is the default provider; Atlas Cloud and MuAPI are also available as explicit opt-in providers.
 
 ## Scripts
 

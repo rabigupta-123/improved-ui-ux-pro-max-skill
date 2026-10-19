@@ -78,7 +78,6 @@ jobs:
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           npx --yes \
             -p semantic-release \
@@ -88,3 +87,13 @@ jobs:
             -p @semantic-release/github \
             -p conventional-changelog-conventionalcommits \
             semantic-release
+
+      - name: Publish CLI to npm
+        if: env.NPM_TOKEN != ''
+        continue-on-error: true
+        working-directory: cli
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm config set //registry.npmjs.org/:_authToken "${NPM_TOKEN}"
+          npm publish --access public || echo "::warning::npm publish failed (check NPM_TOKEN secret or npm trusted publisher setup)"

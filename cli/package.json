@@ -23,8 +23,8 @@
     "evaluate:relevance": "cd .. && node cli/scripts/run-python.mjs scripts/evaluate-relevance.py",
     "evaluate:relevance:calibration": "cd .. && node cli/scripts/run-python.mjs scripts/evaluate-relevance.py --split calibration",
     "evaluate:relevance:held-out": "cd .. && node cli/scripts/run-python.mjs scripts/evaluate-relevance.py --split held_out",
-    "smoke:domains": "cd .. && bash scripts/smoke-domains.sh",
-    "smoke:stacks": "cd .. && bash scripts/smoke-stacks.sh",
+    "smoke:domains": "cd .. && node cli/scripts/run-bash.mjs scripts/smoke-domains.sh",
+    "smoke:stacks": "cd .. && node cli/scripts/run-bash.mjs scripts/smoke-stacks.sh",
     "verify:data": "npm run validate:csv && npm run validate:semantic && npm run validate:agent-guide && npm run validate:catalog-summary && npm run test:python && npm run evaluate:relevance && npm run smoke:domains && npm run smoke:stacks && npm run check:assets",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run sync:assets && npm run verify:data && npm run typecheck && npm run build"

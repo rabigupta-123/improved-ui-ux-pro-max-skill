@@ -43,7 +43,7 @@ Script paths in this skill and its `references/` are relative to the directory t
 
 ## Logo Design (Built-in)
 
-55+ styles, 30 color palettes, 25 industry guides. Gemini Nano Banana, Atlas
+55+ styles, 75 color palettes, 25 industry guides. Gemini Nano Banana, Atlas
 Cloud, and MuAPI image generation.
 
 ### Logo: Generate Design Brief
