@@ -12,9 +12,7 @@ jobs:
   bump-versions:
     name: Bump skill.json versions
     runs-on: ubuntu-latest
-    if: |
-      github.repository == 'nextlevelbuilder/ui-ux-pro-max-skill' &&
-      !contains(github.ref_name, 'beta')
+    if: !contains(github.ref_name, 'beta')
 
     steps:
       - name: Checkout main

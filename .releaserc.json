@@ -33,7 +33,8 @@
       {
         "successComment": false,
         "failTitle": "Release failed for ${branch.name}",
-        "labels": false
+        "releasedLabels": false,
+        "failLabels": false
       }
     ]
   ]
