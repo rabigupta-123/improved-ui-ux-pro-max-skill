@@ -42,6 +42,12 @@ jobs:
             .claude-plugin/plugin.json > plugin.json.tmp \
             && mv plugin.json.tmp .claude-plugin/plugin.json
 
+      - name: Update cli/package.json
+        run: |
+          jq --arg v "${{ steps.version.outputs.version }}" '.version = $v' \
+            cli/package.json > cli/package.json.tmp \
+            && mv cli/package.json.tmp cli/package.json
+
       - name: Create pull request
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -51,9 +57,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
-          git add skill.json .claude-plugin/marketplace.json .claude-plugin/plugin.json
+          git add skill.json .claude-plugin/marketplace.json .claude-plugin/plugin.json cli/package.json
           git commit -m "fix: bump skill.json version to ${VERSION}"
           git push origin "$BRANCH"
           gh pr create \
             --title "fix: bump skill.json version to ${VERSION}" \
-            --body "Bumps \`skill.json\`, \`marketplace.json\`, and \`plugin.json\` version to \`${VERSION}\` to match the latest GitHub release."
+            --body "Bumps \`skill.json\`, \`marketplace.json\`, \`plugin.json\`, and \`cli/package.json\` version to \`${VERSION}\` to match the latest GitHub release."

@@ -22,13 +22,6 @@
       }
     ],
     [
-      "@semantic-release/npm",
-      {
-        "pkgRoot": "cli",
-        "npmPublish": false
-      }
-    ],
-    [
       "@semantic-release/github",
       {
         "successComment": false,
